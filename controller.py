@@ -46,7 +46,7 @@ def main ():
          return password()
     elif (read == 'd'):
         return dictionary_menu()
-    elif (read == 'h'):
+    elif (read == 'a'):
         return about()
     elif (read == 'q'):
         return True
