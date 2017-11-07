@@ -11,5 +11,6 @@
    
 Password Generator
 
-A short Python program that generates a password from a dictionary <br>
+A short Python console program that generates a password from a dictionary or external file. Calculates entropy of password on bits, compares results with randomized generated passwords on different sets of characters. <br>
+<br>Instructions: <br>
 Run file <b>passwords.py</b>
