@@ -77,7 +77,7 @@ def password():
 
     print (v.number_words)
     no_words = input()
-    while (not (no_words.isdigit()) and int(no_words) < 1):
+    while (not (no_words.isdigit()) or not(1 <= int(no_words) <= 9999)):
         print(v.error_words)
         no_words = input()
 
