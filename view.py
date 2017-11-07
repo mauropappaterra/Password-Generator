@@ -44,7 +44,7 @@ password_intro = "To create a stronger, but easier to remember password, the pro
 
 
 def entropy(n):
-    text = "DICTIONARY: You are using the default dictionary of " + n + " words.\n" + \
+    text = "DICTIONARY: You are using the default dictionary of " + str(n) + " words.\n" + \
            "ENTROPY: The entropy for a 4 word password generated using this dictionary will be of "
     return text
 
