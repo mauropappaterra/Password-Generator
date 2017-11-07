@@ -38,7 +38,7 @@ def main ():
     print(v.menu)
 
     read = input().lower()
-    while (read != 'c' and read != 'd' and read != 'h' and read != 'q'):
+    while (read != 'c' and read != 'd' and read != 'a' and read != 'q'):
         print (v.error_input)
         read = input().lower()
 
