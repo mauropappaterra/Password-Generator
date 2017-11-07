@@ -71,8 +71,8 @@ simple = "\nMESSAGE: You have selected a simplified dictionary of 10000 words.\n
 full = "\nMESSAGE: You have selected a full dictionary of 370099 words.\n"
 path = "\nMESSAGE: This option is unavailable. Nothing has changed.\n"
 
-error_start = "Invalid Input. Enter 's' to start or 'q' to quit - press <enter>"
-error_input = "Invalid Input. Select a valid option from the menu"
-error_words = "Invalid Input. Enter an integer number equal or larger than 1"
+error_start = "Invalid Input: Enter 's' to start or 'q' to quit - press <enter>"
+error_input = "Invalid Input: Select a valid option from the menu"
+error_words = "Invalid Input: Enter an integer number between 1 and 9999"
 error_path = "Error: Not a valid path or file. Try again..."
 exit = "EXIT BY USER"
