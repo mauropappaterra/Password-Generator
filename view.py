@@ -58,5 +58,11 @@ def compare(ten, twentysix, fiftytwo, sixtytwo):
 
 your_password = "--------------------\n" + "Your password is => "
 
+password_menu = """ Enter a valid option to continue
+a - try again!
+b - back to menu
+q - quit
+"""
+
 exit = "Exit by user!"
 

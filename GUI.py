@@ -78,6 +78,8 @@ def password():
 
     time.sleep(0.5)
 
+    print (v.password_menu)
+
     read = input()
     while (read != 'b' and read != 'a' and read != 'q'):
         print("Invalid Input. Select a valid option from the menu")
