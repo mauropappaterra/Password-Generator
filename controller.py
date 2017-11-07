@@ -1,6 +1,6 @@
 # Password-Generator 
 # controller.py
-# Created by Mauro J. Pappaterra on 04 of November 2017.
+# Created by Mauro J. Pappaterra on 06 of November 2017.
 import model as m
 import view as v
 import time
@@ -21,11 +21,11 @@ def start():
         print(v.welcome)
         print(v.instructions)
 
-        read = input()
+        read = input().lower()
 
         while (read != 's' and read != 'q'):
             print (v.error_start)
-            read = input()
+            read = input().lower()
 
         if (read == 's'):
             exit = main()
@@ -37,16 +37,16 @@ def start():
 def main ():
     print(v.menu)
 
-    read = input()
-    while (read != '1' and read != '2' and read != '3' and read != 'q'):
+    read = input().lower()
+    while (read != 'c' and read != 'd' and read != 'h' and read != 'q'):
         print (v.error_input)
-        read = input()
+        read = input().lower()
 
-    if (read == '1'):
-         return password(True)
-    elif (read == '2'):
+    if (read == 'c'):
+         return password()
+    elif (read == 'd'):
         return dictionary_menu()
-    elif (read == '3'):
+    elif (read == 'h'):
         return about()
     elif (read == 'q'):
         return True
@@ -55,17 +55,18 @@ def about():
 
     print (v.about)
 
-    read = input()
+    read = input().lower()
     while (read != 'b' and read != 'q'):
         print (v.error_input)
-        read = input()
+        read = input().lower()
 
     if (read == 'b'):
         return main()
     elif (read == 'q'):
         return True
 
-def password(intro):
+def password():
+    global dictionary
 
     if (use_simple):
         dictionary = simple [:]
@@ -73,36 +74,64 @@ def password(intro):
         dictionary = full [:]
 
     size = len(dictionary)
-    entropy = m.getEntropy(size)
 
-    if (intro):
-        print (v.info_dictionary(size) + str(entropy) + " bits")
-        time.sleep(1)
-        print (v.your_password + m.getPassword(dictionary))
+    print (v.number_words)
+    no_words = input()
+    while (not (no_words.isdigit()) and int(no_words) < 1):
+        print(v.error_words)
+        no_words = input()
 
-        ten = m.estimateLength(10, entropy)
-        twentysix = m.estimateLength(10, entropy)
-        fiftytwo = m.estimateLength(52, entropy)
-        sixtytwo = m.estimateLength(62, entropy)
+    no_words = int (no_words)
+    entropy = m.getEntropy(size, no_words)
 
-        time.sleep(1)
+    print (v.info_dictionary(size, no_words) + str(entropy) + " bits of entropy")
+    time.sleep(1)
+    print (v.your_password + m.getPassword(dictionary, no_words))
 
-        v.compare(ten, twentysix, fiftytwo, sixtytwo)
+    ten = m.estimateLength(10, entropy)
+    twentysix = m.estimateLength(26, entropy)
+    fiftytwo = m.estimateLength(52, entropy)
+    sixtytwo = m.estimateLength(62, entropy)
 
-    else:
-        print(v.your_password + m.getPassword(dictionary))
+    time.sleep(1)
+
+    v.compare(ten, twentysix, fiftytwo, sixtytwo)
 
     print (v.password_menu)
 
-    read = input()
-    while (read != 'b' and read != 'n' and read != 'q'):
+    read = input().lower()
+    while (read != 'b' and read != 'n' and read != 'g' and read != 'd' and read != 'q'):
         print (v.error_input)
-        read = input()
+        read = input().lower()
 
     if (read == 'b'):
         return main()
+    elif (read == 'g'):
+        return generate_new(dictionary, no_words)
     elif (read == 'n'):
-        return password(False)
+        return password()
+    elif (read == 'd'):
+        return dictionary_menu()
+    elif (read == 'q'):
+        return True
+
+def generate_new(dictionary, no_words):
+
+    print (v.your_password + m.getPassword(dictionary, no_words))
+
+    print(v.password_menu)
+
+    read = input().lower()
+    while (read != 'b' and read != 'n' and read != 'g' and read != 'd' and read != 'q'):
+        print(v.error_input)
+        read = input().lower()
+
+    if (read == 'b'):
+        return main()
+    elif (read == 'g'):
+        return generate_new(dictionary, no_words)
+    elif (read == 'n'):
+        return password()
     elif (read == 'q'):
         return True
 
@@ -112,10 +141,10 @@ def dictionary_menu ():
 
     print (v.dictionary)
 
-    read = input()
-    while (read != 's' and read != 'f'and read != 'p'and read != 'b' and read != 'q'):
+    read = input().lower()
+    while (read != 's' and read != 'f'and read != 'p'and read != 'b' and read != 'c' and read != 'q'):
         print (v.error_input)
-        read = input()
+        read = input().lower()
 
     if (read == 's'):
         use_simple = True
@@ -136,6 +165,9 @@ def dictionary_menu ():
 
     elif (read == 'b'):
         return main()
+
+    elif (read == 'c'):
+        return password()
 
     elif (read == 'q'):
         return True

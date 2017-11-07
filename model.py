@@ -17,14 +17,17 @@ def getRandom(dictionary):
     word = dictionary[random] # fetches word from dictionary
     return word.replace('\n','')
 
-def getPassword(dictionary):
-    'Returns four randomized words from the dictionary concatenated together'
-    password = getRandom(dictionary) +" "+ getRandom(dictionary) +" "+ getRandom(dictionary) +" "+ getRandom(dictionary)
-    #print (password)
+def getPassword(dictionary, n):
+    'Returns n randomized words from a dictionary concatenated together'
+    password = ""
+    while (n > 1):
+        password += getRandom(dictionary) + " "
+        n -= 1
+    password += getRandom(dictionary)
     return password
 
-def getEntropy (n):
-    entropy = math.log(n,2) * 4
+def getEntropy (size, n):
+    entropy = math.log(size, 2) * n
     return round(entropy, 2)
 
 def estimateLength(s, n):
