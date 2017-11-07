@@ -22,21 +22,14 @@ def getRandom():
 def getPassword():
     'Returns four randomized words from the dictionary concatenated together'
     password = getRandom() +" "+ getRandom() +" "+ getRandom() +" "+ getRandom()
-    print (password)
-    return password.replace(' ','')
+    #print (password)
+    return password
 
 
 def getEntropy (n):
     entropy = math.log(n,2) * 4
-    return str (entropy)
+    return str(round(entropy, 2))
 
-
-def findEntropy (password):
-    power = len (password)
-    base = 26 **power
-    print (base)
-    entropy = math.log(base,2)
-    return str (entropy)
 
 def estimateLength(s, n):
     """Given the size of the set (s) and the entropy (n) as an argument
@@ -44,8 +37,10 @@ def estimateLength(s, n):
     entropy on a set of x character """
 
     entropy = n / math.log(s,2)
-    return str(entropy)
+    return str(round(entropy, 2))
 
 # FOR TESTING
 #print(getRandom()) # print a random word
 #print (getPassword()) # print a password
+
+print (getEntropy(62))
