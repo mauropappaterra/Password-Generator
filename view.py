@@ -19,12 +19,12 @@ welcome = """                ____                                          __
             """
 instructions = """Welcome to Password Generator. This short program will help you generate a random password from an
 external .txt file and calculate its entropy. You can also compare entropy of different methods! 
-Enter 'q' and press <enter> at any time to exit the program.
+Enter 'q' at any time to exit the program.
 
 Enter 's' and press <enter> to begin!
 """
 
-menu = """ Select one of the available options and press <enter>
+menu = """Select one of the available options and press <enter>:
 1 - CREATE PASSWORD => Generate a password and calculate it's entropy!
 2 - CHANGE DICTIONARY => Change default dictionary or enter a path to your own text file!
 3 - ABOUT => Read more about secure passwords and entropy.
@@ -58,7 +58,7 @@ def compare(ten, twentysix, fiftytwo, sixtytwo):
 
 your_password = "--------------------\n" + "Your password is => "
 
-password_menu = """ Enter a valid option to continue
+password_menu = """\nSelect one of the available optionsand press <enter>:
 a - try again!
 b - back to menu
 q - quit
