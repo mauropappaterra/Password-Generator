@@ -5,7 +5,7 @@ import model as m
 import view as v
 import time
 
-# DEFAULT DICTIONARIES
+# GLOBAL VARIABLES
 dictionary = []
 simple = m.createDictionary("dictionaries/dictionary_simple.txt")
 full = m.createDictionary("dictionaries/dictionary_full.txt")
@@ -13,6 +13,7 @@ full = m.createDictionary("dictionaries/dictionary_full.txt")
 use_simple = True
 use_full = False
 
+# MAIN PROGRAM METHOD / START SCREEN
 def start():
 
     exit = False
@@ -34,6 +35,7 @@ def start():
             exit = True
     print (v.exit)
 
+# MAIN MENU
 def main ():
     print(v.menu)
 
@@ -51,6 +53,7 @@ def main ():
     elif (read == 'q'):
         return True
 
+# ABOUT PAGE
 def about():
 
     print (v.about)
@@ -65,6 +68,7 @@ def about():
     elif (read == 'q'):
         return True
 
+# CREATE A NEW PASSWORD MENU
 def password():
     global dictionary
 
@@ -115,10 +119,10 @@ def password():
     elif (read == 'q'):
         return True
 
+# GENERATE PASSWORD MENU
 def generate_new(dictionary, no_words):
 
     print (v.your_password + m.getPassword(dictionary, no_words))
-
     print(v.password_menu)
 
     read = input().lower()
@@ -135,6 +139,7 @@ def generate_new(dictionary, no_words):
     elif (read == 'q'):
         return True
 
+# DICTIONARY MENU
 def dictionary_menu ():
     global use_simple
     global use_full
@@ -160,7 +165,6 @@ def dictionary_menu ():
 
     elif (read == 'p'):
         print(v.path)
-        print("Available soon!")
         return dictionary_menu()
 
     elif (read == 'b'):

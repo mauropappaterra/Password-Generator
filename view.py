@@ -1,6 +1,8 @@
 # Password-Generator 
 # view.py
-# Created by Mauro J. Pappaterra on 06 of 11 2017.
+# Created by Mauro J. Pappaterra on 06 of November 2017.
+
+#START SCREEN
 welcome = """                ____                                          __
                / __ \____ ____________      ______  _________/ /
               / /_/ / __ `/ ___/ ___/ | /| / / __ \/ ___/ __  / 
@@ -22,6 +24,7 @@ You might enter 'q' at any time to exit the program.
 Enter 's' and press <enter> to begin!
 """
 
+# MAIN MENU
 menu = """::::Select one of the available options:
 c - Create Password: Generate a random password and calculate it's entropy!
 d - Change Dictionary: Change default dictionary, or enter a path to your own text file!
@@ -30,16 +33,17 @@ a - About: Read more about secure passwords and entropy.
 q - Quit
 """
 
+# ABOUT PAGE
 about = """To create a stronger, but easier to remember password, the program will randomly select words from the selected dictionary.
 
 b - Back to menu
 """
 
+# PASSWORD MENU
 def info_dictionary(n,w):
     text = "DICTIONARY: You are using a dictionary of " + str(n) + " words.\n" + \
            "ENTROPY <choosing "+ str(w)+ " random words> : "
     return text
-
 
 def compare(ten, twentysix, fiftytwo, sixtytwo):
     print("\nThe necessary length for a randomly generated password to have the same entropy, would be:")
@@ -58,6 +62,7 @@ n - New random password
 b - Back to menu
 """
 
+# DICTIONARY MENU
 dictionary = """::::Select one of the available options:
 f - Use full dictionary 
 s - Use simplified dictionary (default)
@@ -69,8 +74,9 @@ b - Back to menu
 
 simple = "\nMESSAGE: You have selected a simplified dictionary of 10000 words.\n"
 full = "\nMESSAGE: You have selected a full dictionary of 370099 words.\n"
-path = "\nMESSAGE: This option is unavailable. Nothing has changed.\n"
+path = "\nCOMING SOON! This option is currently unavailable. No changes were made.\n"
 
+# ERROR MESSAGES
 error_start = "Invalid Input: Enter 's' to start or 'q' to quit - press <enter>"
 error_input = "Invalid Input: Select a valid option from the menu"
 error_words = "Invalid Input: Enter an integer number between 1 and 9999"
