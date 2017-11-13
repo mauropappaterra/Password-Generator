@@ -59,6 +59,7 @@ number_words = "\nHow many random words do you want to use for your password? (R
 password_menu = """
 g - Generate another password using the same settings
 n - New random password
+d - Change Dictionary
 b - Back to menu
 """
 
