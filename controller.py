@@ -1,20 +1,16 @@
 # Password-Generator 
 # controller.py
 # Created by Mauro J. Pappaterra on 06 of November 2017.
-import model as m
-import view as v
 import time
 
 # GLOBAL VARIABLES
 dictionary = []
-simple = m.createDictionary("dictionaries/dictionary_simple.txt")
-full = m.createDictionary("dictionaries/dictionary_full.txt")
 
 use_simple = True
 use_full = False
 
 # MAIN PROGRAM METHOD / START SCREEN
-def start():
+def start(m,v):
 
     exit = False
     while (not exit):
@@ -29,14 +25,14 @@ def start():
             read = input().lower()
 
         if (read == 's'):
-            exit = main()
+            exit = main(m,v)
 
         if (read == 'q'):
             exit = True
     print (v.exit)
 
 # MAIN MENU
-def main ():
+def main (m,v):
     print(v.menu)
 
     read = input().lower()
@@ -45,16 +41,16 @@ def main ():
         read = input().lower()
 
     if (read == 'c'):
-         return password()
+         return password(m,v)
     elif (read == 'd'):
-        return dictionary_menu()
+        return dictionary_menu(m,v)
     elif (read == 'a'):
-        return about()
+        return about(m,v)
     elif (read == 'q'):
         return True
 
 # ABOUT PAGE
-def about():
+def about(m,v):
 
     print (v.about)
 
@@ -64,13 +60,15 @@ def about():
         read = input().lower()
 
     if (read == 'b'):
-        return main()
+        return main(m,v)
     elif (read == 'q'):
         return True
 
 # CREATE A NEW PASSWORD MENU
-def password():
+def password(m,v):
     global dictionary
+    simple = m.createDictionary("dictionaries/dictionary_simple.txt")
+    full = m.createDictionary("dictionaries/dictionary_full.txt")
 
     if (use_simple):
         dictionary = simple [:]
@@ -93,13 +91,13 @@ def password():
     print (v.your_password + m.getPassword(dictionary, no_words))
 
     ten = m.estimateLength(10, entropy)
-    twentysix = m.estimateLength(26, entropy)
-    fiftytwo = m.estimateLength(52, entropy)
-    sixtytwo = m.estimateLength(62, entropy)
+    twenty_six = m.estimateLength(26, entropy)
+    fifty_two = m.estimateLength(52, entropy)
+    sixty_two = m.estimateLength(62, entropy)
 
     time.sleep(1)
 
-    v.compare(ten, twentysix, fiftytwo, sixtytwo)
+    v.compare(ten, twenty_six, fifty_two, sixty_two)
 
     print (v.password_menu)
 
@@ -109,18 +107,18 @@ def password():
         read = input().lower()
 
     if (read == 'b'):
-        return main()
+        return main(m,v)
     elif (read == 'g'):
-        return generate_new(dictionary, no_words)
+        return generate_new(m, v, dictionary, no_words)
     elif (read == 'n'):
-        return password()
+        return password(m,v)
     elif (read == 'd'):
-        return dictionary_menu()
+        return dictionary_menu(m,v)
     elif (read == 'q'):
         return True
 
 # GENERATE PASSWORD MENU
-def generate_new(dictionary, no_words):
+def generate_new(m, v, dictionary, no_words):
 
     print (v.your_password + m.getPassword(dictionary, no_words))
     print(v.password_menu)
@@ -131,16 +129,16 @@ def generate_new(dictionary, no_words):
         read = input().lower()
 
     if (read == 'b'):
-        return main()
+        return main(m,v)
     elif (read == 'g'):
-        return generate_new(dictionary, no_words)
+        return generate_new(m, v, dictionary, no_words)
     elif (read == 'n'):
-        return password()
+        return password(m,v)
     elif (read == 'q'):
         return True
 
 # DICTIONARY MENU
-def dictionary_menu ():
+def dictionary_menu (m,v):
     global use_simple
     global use_full
 
@@ -155,23 +153,23 @@ def dictionary_menu ():
         use_simple = True
         use_full = False
         print (v.simple)
-        return dictionary_menu()
+        return dictionary_menu(m,v)
 
     elif (read == 'f'):
         use_simple = False
         use_full = True
         print(v.full)
-        return dictionary_menu()
+        return dictionary_menu(m,v)
 
     elif (read == 'p'):
         print(v.path)
-        return dictionary_menu()
+        return dictionary_menu(m,v)
 
     elif (read == 'b'):
-        return main()
+        return main(m,v)
 
     elif (read == 'c'):
-        return password()
+        return password(m,v)
 
     elif (read == 'q'):
         return True
