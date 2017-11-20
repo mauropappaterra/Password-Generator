@@ -2,6 +2,8 @@
 # test.py
 # Created by Mauro J. Pappaterra on 07 of November 2017.
 import model as m
+import mock
+import unittest
 
 simple = "dictionaries/dictionary_simple.txt" # path to dictionary
 full = "dictionaries/dictionary_simple.txt" # path to dictionary
