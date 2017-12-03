@@ -17,7 +17,9 @@ A short Python console program that generates random passwords from a dictionary
 2. Follow instructions from the console interface
 
 <br>
----
+--
+<br>
+
 <h3>Instructions to run the program</h3>
 -To run this program in your computer you need to <a href="https://www.python.org/downloads/">download and install Python 3.</a><br>
 -To execute from the command line on a Ms Windows system you need to <a href="https://docs.python.org/2/using/windows.html">add Python to the PATH environmental variable.</a><br>
