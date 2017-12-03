@@ -27,7 +27,7 @@ A short Python console program that generates random passwords from a dictionary
 
 <h5>From the command line:</h5>
 1. Open a terminal <br>
-2. Navigate to the folder where the file is found <br>
+2. Navigate to the folder where the file is located <br>
 3. On the command line execute: <br>
 &nbsp &nbsp &nbsp <code>> python3 passwords.py </code> <br>
 
