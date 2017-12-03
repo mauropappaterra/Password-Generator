@@ -15,10 +15,9 @@ A short Python console program that generates random passwords from a dictionary
 <h3>Instructions:</h3>
 1. Run file <b>passwords.py</b> as instructed below<br>
 2. Follow instructions from the console interface
+3. You might enter 'q' and then press <'enter> at any time to exit the program
 
-<br>
---
-<br>
+<hr>
 
 <h3>Instructions to run the program</h3>
 -To run this program in your computer you need to <a href="https://www.python.org/downloads/">download and install Python 3.</a><br>
