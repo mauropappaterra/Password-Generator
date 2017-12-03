@@ -14,7 +14,7 @@
 A short Python console program that generates random passwords from a dictionary or external file. This program can also calculate entropy of password on bits, and compares entropy values with random generated passwords on different sets of characters. <br>
 <h3>Instructions:</h3>
 1. Run file <b>passwords.py</b> as instructed below<br>
-2. Follow instructions from the console interface
+2. Follow instructions from the console interface <br>
 3. You might enter 'q' and then press <'enter> at any time to exit the program
 
 <hr>
