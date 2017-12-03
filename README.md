@@ -9,7 +9,7 @@
             \____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/     v1.0
               = Create passwords and calculate entropy =                                   
    
-#Password Generator
+<h1>Password Generator</h1>
 
 A short Python console program that generates random passwords from a dictionary or external file. This program can also calculate entropy of password on bits, and compares entropy values with random generated passwords on different sets of characters. <br>
 <h3>Instructions:</h3>
@@ -17,6 +17,7 @@ A short Python console program that generates random passwords from a dictionary
 2. Follow instructions from the console interface
 
 <br>
+---
 <h3>Instructions to run the program</h3>
 -To run this program in your computer you need to <a href="https://www.python.org/downloads/">download and install Python 3.</a><br>
 -To execute from the command line on a Ms Windows system you need to <a href="https://docs.python.org/2/using/windows.html">add Python to the PATH environmental variable.</a><br>
@@ -32,4 +33,4 @@ A short Python console program that generates random passwords from a dictionary
 1. Open Python <br>
 2. On the prompt execute: <br>
 &nbsp &nbsp &nbsp <code>> exec(open("<i>path</i>/passwords.py").read())</code> <br>
-&nbsp &nbsp &nbsp <b>Notice: Replace <i>path</i> with the local path to the folder that contains the file TOCTTOU.py</b> <br>
+&nbsp &nbsp &nbsp <b>Notice: Replace <i>path</i> with the local path to the folder that contains the file passwords.py</b> <br>
