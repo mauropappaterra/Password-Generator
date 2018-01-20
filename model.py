@@ -3,14 +3,43 @@
 # Created by Mauro J. Pappaterra on 04 of November 2017.
 from random import *
 import math
+import codecs
 
 # NOTE: 'Dictionaries' are stored into lists, not in a Python's actual dictionary data structure.
 
 def createDictionary (path):
-    "Takes a path to an external .txt file and returns a list (or 'dictionary') containing all words"
+    "Takes a path to a dictionary-formatted .txt file, and returns a list (or 'dictionary') containing all words"
     mode = "r"
     with open(path, mode) as myFile:
         dictionary = (myFile.readlines())  # save each word as an element on a list
+    return dictionary
+
+def createExternal (path):
+    "Takes a path to an external .txt file and returns a list (or 'dictionary') containing all words"
+    mode = "r"
+    dictionary = []
+    word = ""
+
+    with codecs.open(path, mode, encoding='utf8') as myFile :
+        full_text = myFile.readlines() # saves each line of the text into a list
+
+        for line in full_text:  # iterates on each line on the list
+            #FOR TESTING PURPOSES
+            #print('\n' + line)
+
+            for character in line:  # iterates every character on a line with a for loop
+                if (character.isalpha() or character == '-' or character == "'"):
+                    word += character.lower()
+                elif (character.isspace()):
+                    if not (word in dictionary):
+                        #FOR TESTING PURPOSES
+                        #print(word)
+                        dictionary.append(word)
+                    word = ""
+
+    dictionary.sort()
+    #FOR TESTING PURPOSES
+    #print(dictionary)
     return dictionary
 
 def getRandom(dictionary):

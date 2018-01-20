@@ -1,13 +1,18 @@
 # Password-Generator 
 # controller.py
 # Created by Mauro J. Pappaterra on 06 of November 2017.
+
 import time
+from pathlib import Path
 
 # GLOBAL VARIABLES
 dictionary = []
 
 use_simple = True
 use_full = False
+use_custom = False
+
+custom_dictionary = "" # dictionaries/idiot.txt
 
 # MAIN PROGRAM METHOD / START SCREEN
 def start(m,v):
@@ -67,13 +72,15 @@ def about(m,v):
 # CREATE A NEW PASSWORD MENU
 def password(m,v):
     global dictionary
-    simple = m.createDictionary("dictionaries/dictionary_simple.txt")
-    full = m.createDictionary("dictionaries/dictionary_full.txt")
 
     if (use_simple):
-        dictionary = simple [:]
+        dictionary = m.createDictionary("dictionaries/dictionary_simple.txt")[:]
     elif (use_full):
-        dictionary = full [:]
+        dictionary = m.createDictionary("dictionaries/dictionary_full.txt")[:]
+    elif (use_custom):
+        print(v.custom)
+        dictionary = m.createExternal(custom_dictionary)[:]
+
 
     size = len(dictionary)
 
@@ -141,6 +148,9 @@ def generate_new(m, v, dictionary, no_words):
 def dictionary_menu (m,v):
     global use_simple
     global use_full
+    global use_custom
+
+    global custom_dictionary
 
     print (v.dictionary)
 
@@ -152,17 +162,39 @@ def dictionary_menu (m,v):
     if (read == 's'):
         use_simple = True
         use_full = False
+        use_custom = False
         print (v.simple)
         return dictionary_menu(m,v)
 
     elif (read == 'f'):
         use_simple = False
         use_full = True
+        use_custom = False
         print(v.full)
         return dictionary_menu(m,v)
 
     elif (read == 'p'):
-        print(v.path)
+
+        print (v.ask_path)
+        read = input().lower()
+        custom_dictionary = Path(read)
+
+        while (not custom_dictionary.is_file()):
+
+            if (read == 'c' or read == 'b'):
+                custom_dictionary = ""
+                return dictionary_menu(m, v)
+
+            print(v.error_path)
+            read = input().lower()
+            custom_dictionary = Path(read)
+
+        use_simple = False
+        use_full = False
+        use_custom = True
+
+        print(v.path + read + ")\n")
+
         return dictionary_menu(m,v)
 
     elif (read == 'b'):

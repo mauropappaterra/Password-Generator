@@ -40,8 +40,10 @@ b - Back to menu
 """
 
 # PASSWORD MENU
+custom = "Using Custom Dictionary - This might take a few seconds..."
+
 def info_dictionary(n,w):
-    text = "DICTIONARY: You are using a dictionary of " + str(n) + " words.\n" + \
+    text = "DICTIONARY: You are using a dictionary of " + str(n) + " unique words.\n" + \
            "ENTROPY <choosing "+ str(w)+ " random words> : "
     return text
 
@@ -75,11 +77,14 @@ b - Back to menu
 
 simple = "\nMESSAGE: You have selected a simplified dictionary of 10000 words.\n"
 full = "\nMESSAGE: You have selected a full dictionary of 370099 words.\n"
-path = "\nCOMING SOON! This option is currently unavailable. No changes were made.\n"
+
+ask_path = "\n:::: Enter the path to the external .txt file you want to use as a dictionary"
+path = "\nMESSAGE: Success! You have selected a custom external dictionary ("
 
 # ERROR MESSAGES
-error_start = "Invalid Input: Enter 's' to start or 'q' to quit - press <enter>"
-error_input = "Invalid Input: Select a valid option from the menu"
-error_words = "Invalid Input: Enter an integer number between 1 and 9999"
-error_path = "Error: Not a valid path or file. Try again..."
+error_start = "\nInvalid Input: Enter 's' to start or 'q' to quit - press <enter>"
+error_input = "\nInvalid Input: Select a valid option from the menu"
+error_words = "\nInvalid Input: Enter an integer number between 1 and 9999"
+error_path = "\nInvalid Input: Not a valid path or file. Try again, or enter 'c' and press <enter> to cancel"
+
 exit = "EXIT BY USER"
