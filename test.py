@@ -7,20 +7,24 @@ import unittest
 
 simple = "dictionaries/dictionary_simple.txt" # path to dictionary
 full = "dictionaries/dictionary_simple.txt" # path to dictionary
-#path = "dictionaries/karamazov.txt"
+path = "dictionaries/idiot.txt"
 
 dictionary_a = m.createDictionary(simple)
 dictionary_b = m.createDictionary(full)
-#dictionary_c = m.createDictionary(path)
+dictionary_c = m.createExternal(path)
 
 print(m.getRandom(dictionary_a))
 print(m.getRandom(dictionary_b))
-#print(m.getRandom(dictionary_c))
+print(m.getRandom(dictionary_c))
 
 print(m.getPassword(dictionary_a,4))
 print(m.getPassword(dictionary_a,10))
 
 print(m.getPassword(dictionary_b,4))
+print(m.getPassword(dictionary_b,10))
+
+print(m.getPassword(dictionary_c,4))
+print(m.getPassword(dictionary_c,10))
 
 print(m.getEntropy(10000,5))
 print(m.getEntropy(10,4))
