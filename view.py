@@ -40,7 +40,6 @@ b - Back to menu
 """
 
 # PASSWORD MENU
-custom = "Using Custom Dictionary - This might take a few seconds..."
 
 def info_dictionary(n,w):
     text = "DICTIONARY: You are using a dictionary of " + str(n) + " unique words.\n" + \
@@ -80,6 +79,8 @@ full = "\nMESSAGE: You have selected a full dictionary of 370099 words.\n"
 
 ask_path = "\n:::: Enter the path to the external .txt file you want to use as a dictionary"
 path = "\nMESSAGE: Success! You have selected a custom external dictionary ("
+custom = "         Creating Custom Dictionary - This might take a few seconds...\n"
+
 
 # ERROR MESSAGES
 error_start = "\nInvalid Input: Enter 's' to start or 'q' to quit - press <enter>"

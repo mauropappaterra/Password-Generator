@@ -7,10 +7,7 @@ from pathlib import Path
 
 # GLOBAL VARIABLES
 dictionary = []
-
-use_simple = True
-use_full = False
-use_custom = False
+use_default = True
 
 custom_dictionary = "" # dictionaries/idiot.txt
 
@@ -73,14 +70,8 @@ def about(m,v):
 def password(m,v):
     global dictionary
 
-    if (use_simple):
+    if (use_default):
         dictionary = m.createDictionary("dictionaries/dictionary_simple.txt")[:]
-    elif (use_full):
-        dictionary = m.createDictionary("dictionaries/dictionary_full.txt")[:]
-    elif (use_custom):
-        print(v.custom)
-        dictionary = m.createExternal(custom_dictionary)[:]
-
 
     size = len(dictionary)
 
@@ -141,15 +132,15 @@ def generate_new(m, v, dictionary, no_words):
         return generate_new(m, v, dictionary, no_words)
     elif (read == 'n'):
         return password(m,v)
+    elif (read == 'd'):
+        return dictionary_menu(m,v)
     elif (read == 'q'):
         return True
 
 # DICTIONARY MENU
 def dictionary_menu (m,v):
-    global use_simple
-    global use_full
-    global use_custom
-
+    global use_default
+    global dictionary
     global custom_dictionary
 
     print (v.dictionary)
@@ -160,17 +151,15 @@ def dictionary_menu (m,v):
         read = input().lower()
 
     if (read == 's'):
-        use_simple = True
-        use_full = False
-        use_custom = False
+        use_default = True
         print (v.simple)
         return dictionary_menu(m,v)
 
     elif (read == 'f'):
-        use_simple = False
-        use_full = True
-        use_custom = False
+        use_default = False
+        dictionary = m.createDictionary("dictionaries/dictionary_full.txt")[:]
         print(v.full)
+
         return dictionary_menu(m,v)
 
     elif (read == 'p'):
@@ -189,11 +178,10 @@ def dictionary_menu (m,v):
             read = input().lower()
             custom_dictionary = Path(read)
 
-        use_simple = False
-        use_full = False
-        use_custom = True
-
-        print(v.path + read + ")\n")
+        print(v.path + read + ")")
+        print(v.custom)
+        use_default = False
+        dictionary = m.createExternal(custom_dictionary)[:]
 
         return dictionary_menu(m,v)
 
